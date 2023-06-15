@@ -8,7 +8,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/personajes" />
         <Route path="/ubicaciones" />
-        <Route path="episodios" />
+        <Route path="/episodios" />
       </Routes>
     </BrowserRouter>
   );
