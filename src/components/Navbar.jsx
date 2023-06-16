@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="container">
+    <div className="">
       <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a
           href="/"
