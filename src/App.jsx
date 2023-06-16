@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./screens/Home";
-import Personajes from "./screens/Personajes";
+import HomeScreen from "./screens/HomeScreen";
+import PersonajesScreen from "./screens/PersonajesScreen";
+import PersonajeDetallesScreen from "./screens/PersonajeDetallesScreen";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/personajes" element={<Personajes />} />
-        <Route path="/personajes/:id" />
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/personajes" element={<PersonajesScreen />} />
+        <Route path="/personajes/:id" element={<PersonajeDetallesScreen />} />
         <Route path="/ubicaciones" />
         <Route path="/episodios" />
       </Routes>

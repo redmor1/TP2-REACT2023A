@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Personaje from "../components/Personaje";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Personajes() {
   const [characters, setCharacters] = useState();
@@ -15,7 +15,9 @@ function Personajes() {
     }
   }
 
-  getCharacters();
+  useEffect(() => {
+    getCharacters();
+  }, []);
 
   return (
     <>
@@ -27,6 +29,7 @@ function Personajes() {
             return (
               <Personaje
                 key={character.id}
+                id={character.id}
                 image={character.image}
                 name={character.name}
                 species={character.species}
