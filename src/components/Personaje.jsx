@@ -9,7 +9,7 @@ function Personaje(props) {
         <h3 className="card-title">{props.name}</h3>
         <h5 className="card-title">{props.species}</h5>
         <Link to={`/personajes/${props.id}`} className="btn btn-primary">
-          Go somewhere
+          Ver detalles
         </Link>
       </div>
     </div>
