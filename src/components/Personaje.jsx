@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 function Personaje(props) {
-  console.log(props);
   return (
     <div className="card col-3">
       <Link

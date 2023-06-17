@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function PersonajeDetalles() {
   const { id } = useParams();
 
   const [character, setCharacter] = useState();
+  const [ubicacion, setUbicacion] = useState();
 
   async function getCharacter() {
     try {
@@ -18,11 +19,22 @@ function PersonajeDetalles() {
     }
   }
 
+  async function getLocation() {
+    try {
+      const res = await fetch(character.location.url);
+      const json = await res.json();
+      setUbicacion(json);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   useEffect(() => {
+    getLocation();
     getCharacter();
   });
 
-  return character ? (
+  return character && ubicacion ? (
     <div className="card mb-3" style={{ maxWidth: "540px" }}>
       <div className="row g-0">
         <div className="col-md-4">
@@ -54,7 +66,10 @@ function PersonajeDetalles() {
               <strong>gender:</strong> {character.gender}
             </p>
             <p className="card-text">
-              <strong>origin:</strong> {character.origin.name}
+              <strong>origin:</strong>{" "}
+              <Link to={`../ubicaciones/${ubicacion.id}`}>
+                {character.origin.name}
+              </Link>
             </p>
           </div>
         </div>
