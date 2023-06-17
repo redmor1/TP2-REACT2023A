@@ -1,4 +1,4 @@
-function Episodios(props) {
+function Episodio(props) {
   return (
     <div className="card col-3">
       <div className="card-body">
@@ -11,4 +11,4 @@ function Episodios(props) {
   );
 }
 
-export default Episodios;
+export default Episodio;
