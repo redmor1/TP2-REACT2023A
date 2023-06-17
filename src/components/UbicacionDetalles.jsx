@@ -26,16 +26,16 @@ function UbicacionDetalles() {
           <div className="card-body">
             <h5 className="card-title">{ubicacion.name}</h5>
             <p className="card-text">
-              <strong>name:</strong> &quot;{ubicacion.name}&quot;
+              <strong>name:</strong> {ubicacion.name}
             </p>
             <p className="card-text">
-              <strong>type:</strong> &quot;{ubicacion.type}&quot;
+              <strong>type:</strong> {ubicacion.type}
             </p>
             <p className="card-text">
-              <strong>dimension:</strong> &quot;{ubicacion.dimension}&quot;
+              <strong>dimension:</strong> {ubicacion.dimension}
             </p>
             <p className="card-text">
-              <strong>created:</strong> &quot;{ubicacion.created}&quot;
+              <strong>created:</strong> {ubicacion.created}
             </p>
           </div>
         </div>
