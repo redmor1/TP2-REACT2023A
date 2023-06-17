@@ -20,12 +20,12 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="#" className="nav-link" aria-current="page">
+            <Link to="#" className="nav-link" aria-current="page">
               Ubicaciones
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="#" className="nav-link" aria-current="page">
+            <Link to={"/episodios"} className="nav-link" aria-current="page">
               Episodios
             </Link>
           </li>

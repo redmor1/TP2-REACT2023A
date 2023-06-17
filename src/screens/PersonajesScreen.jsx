@@ -23,7 +23,6 @@ function Personajes() {
     <>
       <Navbar />
       <div className="container row">
-        {" "}
         {characters ? (
           characters.map((character) => {
             return (

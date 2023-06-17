@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import PersonajesScreen from "./screens/PersonajesScreen";
 import PersonajeDetallesScreen from "./screens/PersonajeDetallesScreen";
+import EpisodiosScreen from "./screens/EpisodiosScreen";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Route path="/personajes" element={<PersonajesScreen />} />
         <Route path="/personajes/:id" element={<PersonajeDetallesScreen />} />
         <Route path="/ubicaciones" />
-        <Route path="/episodios" />
+        <Route path="/episodios" element={<EpisodiosScreen />} />
       </Routes>
     </BrowserRouter>
   );
