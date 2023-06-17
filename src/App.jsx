@@ -4,6 +4,7 @@ import PersonajesScreen from "./screens/PersonajesScreen";
 import PersonajeDetallesScreen from "./screens/PersonajeDetallesScreen";
 import EpisodiosScreen from "./screens/EpisodiosScreen";
 import UbicacionesScreen from "./screens/UbicacionesScreen";
+import UbicacionDetallesScreen from "./screens/UbicacionDetallesScreen";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/personajes" element={<PersonajesScreen />} />
         <Route path="/personajes/:id" element={<PersonajeDetallesScreen />} />
         <Route path="/ubicaciones" element={<UbicacionesScreen />} />
+        <Route path="/ubicaciones/:id" element={<UbicacionDetallesScreen />} />
         <Route path="/episodios" element={<EpisodiosScreen />} />
       </Routes>
     </BrowserRouter>
