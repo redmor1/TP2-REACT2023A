@@ -20,7 +20,7 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="#" className="nav-link" aria-current="page">
+            <Link to={"/ubicaciones"} className="nav-link" aria-current="page">
               Ubicaciones
             </Link>
           </li>
