@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Ubicacion from "../components/Ubicacion";
 import Error from "../components/Error";
+import Loader from "../components/Loader";
 
 function UbicacionesScreen() {
   const [ubicaciones, setUbicaciones] = useState();
@@ -50,7 +51,7 @@ function UbicacionesScreen() {
             );
           })
         ) : (
-          <h1>Cargando...</h1>
+          <Loader />
         )}
       </div>
     </>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Episodio from "../components/Episodio";
 import Navbar from "../components/Navbar";
 import Error from "../components/Error";
+import Loader from "../components/Loader";
 
 function EpisodiosScreen() {
   const [episodios, setEpisodios] = useState();
@@ -50,7 +51,7 @@ function EpisodiosScreen() {
             );
           })
         ) : (
-          <h1>Cargando...</h1>
+          <Loader />
         )}
       </div>
     </>

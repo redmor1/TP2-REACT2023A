@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Personaje from "./Personaje";
 import Error from "./Error";
+import Loader from "./Loader";
 
 function EpisodioDetalles() {
   const { id } = useParams();
@@ -81,7 +82,7 @@ function EpisodioDetalles() {
       <div className="row">{characters}</div>
     </>
   ) : (
-    <h1>Cargando...</h1>
+    <Loader />
   );
 }
 export default EpisodioDetalles;

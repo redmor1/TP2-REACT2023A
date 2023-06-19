@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Error from "./Error";
+import Loader from "./Loader";
 
 function UbicacionDetalles() {
   const { id } = useParams();
@@ -52,7 +53,7 @@ function UbicacionDetalles() {
       </div>
     </div>
   ) : (
-    <h1>Cargando...</h1>
+    <Loader />
   );
 }
 

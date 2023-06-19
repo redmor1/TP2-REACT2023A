@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Personaje from "../components/Personaje";
 import Error from "../components/Error";
+import Loader from "../components/Loader";
 import { useState, useEffect } from "react";
 
 function Personajes() {
@@ -50,7 +51,7 @@ function Personajes() {
             );
           })
         ) : (
-          <h1>Cargando...</h1>
+          <Loader />
         )}
       </div>
     </>

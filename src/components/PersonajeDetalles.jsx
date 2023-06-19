@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Error from "./Error";
+import Loader from "./Loader";
 
 function PersonajeDetalles() {
   const { id } = useParams();
@@ -88,7 +89,7 @@ function PersonajeDetalles() {
       </div>
     </div>
   ) : (
-    <h1>Cargando...</h1>
+    <Loader />
   );
 }
 
