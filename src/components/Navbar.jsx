@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -15,19 +15,27 @@ function Navbar() {
 
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <Link to={"/personajes"} className="nav-link" aria-current="page">
+            <NavLink
+              to={"/personajes"}
+              className="nav-link"
+              aria-current="page"
+            >
               Personajes
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to={"/ubicaciones"} className="nav-link" aria-current="page">
+            <NavLink
+              to={"/ubicaciones"}
+              className="nav-link"
+              aria-current="page"
+            >
               Ubicaciones
-            </Link>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link to={"/episodios"} className="nav-link" aria-current="page">
+            <NavLink to={"/episodios"} className="nav-link" aria-current="page">
               Episodios
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </header>
