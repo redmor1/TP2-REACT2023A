@@ -1,16 +1,22 @@
 import Navbar from "../components/Navbar";
 import Personaje from "../components/Personaje";
+import Error from "../components/Error";
 import { useState, useEffect } from "react";
 
 function Personajes() {
   const [characters, setCharacters] = useState();
+  const [error, setError] = useState();
 
   async function getCharacters() {
     try {
       const res = await fetch("https://rickandmortyapi.com/api/character");
       const json = await res.json();
+      if (json.error) {
+        setError(json.error);
+      }
       setCharacters(json.results);
     } catch (e) {
+      setError(e.message);
       console.log(e);
     }
   }
@@ -19,6 +25,14 @@ function Personajes() {
     getCharacters();
   }, []);
 
+  if (error) {
+    return (
+      <>
+        <Navbar />
+        <Error error={error} />
+      </>
+    );
+  }
   return (
     <>
       <Navbar />

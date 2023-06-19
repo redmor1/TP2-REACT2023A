@@ -1,19 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Personaje from "./Personaje";
+import Error from "./Error";
 
 function EpisodioDetalles() {
   const { id } = useParams();
 
   const [episodio, setEpisodio] = useState();
   const [characters, setCharacters] = useState();
+  const [error, setError] = useState();
 
   async function getEpisode() {
     try {
       const res = await fetch(`https://rickandmortyapi.com/api/episode/${id}`);
       const json = await res.json();
+      if (json.error) {
+        setError(json.error);
+      }
       setEpisodio(json);
     } catch (e) {
+      setError(e.message);
       console.log(e);
     }
   }
@@ -52,6 +58,9 @@ function EpisodioDetalles() {
     fetchAndRenderCharacters();
   }, [episodio]);
 
+  if (error) {
+    return <Error error={error} />;
+  }
   return episodio && characters ? (
     <>
       <div className="card mb-3" style={{ maxWidth: "540px" }}>

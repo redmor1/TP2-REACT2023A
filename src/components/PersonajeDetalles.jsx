@@ -1,11 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Error from "./Error";
 
 function PersonajeDetalles() {
   const { id } = useParams();
 
   const [character, setCharacter] = useState();
   const [ubicacion, setUbicacion] = useState();
+  const [error, setError] = useState();
 
   async function getCharacter() {
     try {
@@ -13,8 +15,12 @@ function PersonajeDetalles() {
         `https://rickandmortyapi.com/api/character/${id}`
       );
       const json = await res.json();
+      if (json.error) {
+        setError(json.error);
+      }
       setCharacter(json);
     } catch (e) {
+      setError(e.message);
       console.log(e);
     }
   }
@@ -37,6 +43,9 @@ function PersonajeDetalles() {
     getLocation();
   }, [character]);
 
+  if (error) {
+    return <Error error={error} />;
+  }
   return character && ubicacion ? (
     <div className="card mb-3" style={{ maxWidth: "540px" }}>
       <div className="row g-0">
