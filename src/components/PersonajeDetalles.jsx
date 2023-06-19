@@ -30,9 +30,12 @@ function PersonajeDetalles() {
   }
 
   useEffect(() => {
-    getLocation();
     getCharacter();
-  });
+  }, []);
+
+  useEffect(() => {
+    getLocation();
+  }, [character]);
 
   return character && ubicacion ? (
     <div className="card mb-3" style={{ maxWidth: "540px" }}>

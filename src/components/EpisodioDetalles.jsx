@@ -46,8 +46,11 @@ function EpisodioDetalles() {
 
   useEffect(() => {
     getEpisode();
+  }, []);
+
+  useEffect(() => {
     fetchAndRenderCharacters();
-  });
+  }, [episodio]);
 
   return episodio && characters ? (
     <>

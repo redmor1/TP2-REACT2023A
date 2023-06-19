@@ -17,7 +17,7 @@ function UbicacionesScreen() {
 
   useEffect(() => {
     getLocations();
-  });
+  }, []);
 
   return (
     <>

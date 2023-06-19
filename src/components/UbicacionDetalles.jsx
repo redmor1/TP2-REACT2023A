@@ -17,7 +17,7 @@ function UbicacionDetalles() {
 
   useEffect(() => {
     getLocation();
-  });
+  }, []);
 
   return ubicacion ? (
     <div className="card mb-3" style={{ maxWidth: "540px" }}>
