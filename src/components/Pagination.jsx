@@ -1,31 +1,19 @@
-function Pagination() {
+function Pagination(props) {
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination">
         <li className="page-item">
-          <a className="page-link" href="#">
+          <button className="page-link" onClick={props.prevPage} href="#">
             Previous
-          </a>
+          </button>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#">
-            1
-          </a>
+          <button className="page-link">{props.currentPage}</button>
         </li>
         <li className="page-item">
-          <a className="page-link" href="#">
-            2
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#">
-            3
-          </a>
-        </li>
-        <li className="page-item">
-          <a className="page-link" href="#">
+          <button className="page-link" onClick={props.nextPage}>
             Next
-          </a>
+          </button>
         </li>
       </ul>
     </nav>

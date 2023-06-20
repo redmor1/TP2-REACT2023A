@@ -3,28 +3,46 @@ import Navbar from "../components/Navbar";
 import Ubicacion from "../components/Ubicacion";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
+import Pagination from "../components/Pagination";
 
 function UbicacionesScreen() {
   const [ubicaciones, setUbicaciones] = useState();
   const [error, setError] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
 
-  async function getLocations() {
+  async function getLocations(page) {
     try {
-      const res = await fetch("https://rickandmortyapi.com/api/location");
+      const res = await fetch(
+        `https://rickandmortyapi.com/api/location?page=${page}`
+      );
       const json = await res.json();
       if (json.error) {
         setError(json.error);
       }
       setUbicaciones(json.results);
+      setTotalPages(json.info.pages);
     } catch (e) {
       setError(e.message);
       console.log(e);
     }
   }
 
+  function nextPage() {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
   useEffect(() => {
-    getLocations();
-  }, []);
+    getLocations(currentPage);
+  }, [currentPage]);
 
   if (error) {
     return (
@@ -53,6 +71,11 @@ function UbicacionesScreen() {
         ) : (
           <Loader />
         )}
+        <Pagination
+          nextPage={nextPage}
+          prevPage={prevPage}
+          currentPage={currentPage}
+        />
       </div>
     </>
   );

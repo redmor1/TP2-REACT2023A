@@ -3,28 +3,46 @@ import Personaje from "../components/Personaje";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 import { useState, useEffect } from "react";
+import Pagination from "../components/Pagination";
 
 function Personajes() {
   const [characters, setCharacters] = useState();
   const [error, setError] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
 
-  async function getCharacters() {
+  async function getCharacters(page) {
     try {
-      const res = await fetch("https://rickandmortyapi.com/api/character");
+      const res = await fetch(
+        `https://rickandmortyapi.com/api/character?page=${page}`
+      );
       const json = await res.json();
       if (json.error) {
         setError(json.error);
       }
       setCharacters(json.results);
+      setTotalPages(json.info.pages);
     } catch (e) {
       setError(e.message);
       console.log(e);
     }
   }
 
+  function nextPage() {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
   useEffect(() => {
-    getCharacters();
-  }, []);
+    getCharacters(currentPage);
+  }, [currentPage]);
 
   if (error) {
     return (
@@ -53,6 +71,11 @@ function Personajes() {
         ) : (
           <Loader />
         )}
+        <Pagination
+          nextPage={nextPage}
+          prevPage={prevPage}
+          currentPage={currentPage}
+        />
       </div>
     </>
   );
