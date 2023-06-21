@@ -79,7 +79,12 @@ function EpisodioDetalles() {
           </div>
         </div>
       </div>
-      <div className="row">{characters}</div>
+      <div className="row">
+        <h1 className="mt-3 mb-5">
+          Los personajes que aparecen en este episodio son:
+        </h1>
+        {characters}
+      </div>
     </>
   ) : (
     <Loader />
