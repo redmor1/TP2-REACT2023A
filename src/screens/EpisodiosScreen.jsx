@@ -56,7 +56,7 @@ function EpisodiosScreen() {
   return (
     <>
       <Navbar />
-      <div className="container row">
+      <div className="container row justify-content-center">
         {episodios ? (
           episodios.map((episodio) => {
             return (
