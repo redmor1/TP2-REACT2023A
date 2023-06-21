@@ -55,7 +55,7 @@ function Personajes() {
   return (
     <>
       <Navbar />
-      <div className="container row">
+      <div className="container row justify-content-center">
         {characters ? (
           characters.map((character) => {
             return (

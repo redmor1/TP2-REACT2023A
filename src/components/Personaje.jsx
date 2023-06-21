@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Personaje(props) {
   return (
-    <div className="card col-3">
+    <div className="card col-3 m-4 p-0">
       <Link
         to={`/personajes/${props.id}`}
         className="text-decoration-none text-reset"
