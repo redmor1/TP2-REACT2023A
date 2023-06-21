@@ -1,0 +1,9 @@
+.nav-link {
+  color: rgb(33, 37, 41);
+  font-weight: 500;
+}
+
+.nav-link.active {
+  color: rgba(255, 255, 255, 0.856) !important;
+  background-color: rgb(33, 37, 41) !important;
+}
