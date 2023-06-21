@@ -55,7 +55,7 @@ function UbicacionesScreen() {
   return (
     <>
       <Navbar />
-      <div className="container row">
+      <div className="container row justify-content-center">
         {ubicaciones ? (
           ubicaciones.map((ubicacion) => {
             return (
