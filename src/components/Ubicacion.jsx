@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Ubicacion(props) {
   return (
-    <div className="card col-3 m-4">
+    <div className="card col-3 m-4 p-0">
       <Link
         to={`/ubicaciones/${props.id}`}
         className="text-decoration-none text-reset"
