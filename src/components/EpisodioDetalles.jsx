@@ -1,29 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useRickAndMortyDataDetailsFetcher } from "../hooks/useRickAndMortyDataDetailsFetcher";
 import Personaje from "./Personaje";
 import Error from "./Error";
 import Loader from "./Loader";
 
 function EpisodioDetalles() {
-  const { id } = useParams();
-
-  const [episodio, setEpisodio] = useState();
+  const { data: episodio, error } = useRickAndMortyDataDetailsFetcher();
   const [characters, setCharacters] = useState();
-  const [error, setError] = useState();
-
-  async function getEpisode() {
-    try {
-      const res = await fetch(`https://rickandmortyapi.com/api/episode/${id}`);
-      const json = await res.json();
-      if (json.error) {
-        setError(json.error);
-      }
-      setEpisodio(json);
-    } catch (e) {
-      setError(e.message);
-      console.log(e);
-    }
-  }
 
   async function fetchAndRenderCharacters() {
     try {
@@ -50,10 +33,6 @@ function EpisodioDetalles() {
       return null;
     }
   }
-
-  useEffect(() => {
-    getEpisode();
-  }, []);
 
   useEffect(() => {
     fetchAndRenderCharacters();
