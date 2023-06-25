@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useRickAndMortyDataFetcher() {
+export function useRickAndMortyDataFetcher(API_URL) {
   const [data, setData] = useState();
   const [error, setError] = useState();
   const [currentPage, setCurrentPage] = useState(1);
@@ -8,9 +8,7 @@ export function useRickAndMortyDataFetcher() {
 
   async function getData(page) {
     try {
-      const res = await fetch(
-        `https://rickandmortyapi.com/api/episode?page=${page}`
-      );
+      const res = await fetch(`${API_URL}?page=${page}`);
       const json = await res.json();
       if (json.error) {
         setError(json.error);
