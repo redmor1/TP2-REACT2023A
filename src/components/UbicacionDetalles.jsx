@@ -1,30 +1,11 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useRickAndMortyDataDetailsFetcher } from "../hooks/useRickAndMortyDataDetailsFetcher";
 import Error from "./Error";
 import Loader from "./Loader";
 
 function UbicacionDetalles() {
-  const { id } = useParams();
-  const [ubicacion, setUbicacion] = useState();
-  const [error, setError] = useState();
-
-  async function getLocation() {
-    try {
-      const res = await fetch(`https://rickandmortyapi.com/api/location/${id}`);
-      const json = await res.json();
-      if (json.error) {
-        setError(json.error);
-      }
-      setUbicacion(json);
-    } catch (e) {
-      setError(e.message);
-      console.log(e);
-    }
-  }
-
-  useEffect(() => {
-    getLocation();
-  }, []);
+  const { data: ubicacion, error } = useRickAndMortyDataDetailsFetcher(
+    "https://rickandmortyapi.com/api/location"
+  );
 
   if (error) {
     return <Error error={error} />;
