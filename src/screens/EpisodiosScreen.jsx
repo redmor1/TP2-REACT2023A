@@ -13,7 +13,7 @@ function EpisodiosScreen() {
     totalPages,
     nextPage,
     prevPage,
-  } = useRickAndMortyDataFetcher();
+  } = useRickAndMortyDataFetcher("https://rickandmortyapi.com/api/episode");
 
   if (error) {
     return (
