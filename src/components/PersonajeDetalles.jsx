@@ -1,30 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useRickAndMortyDataDetailsFetcher } from "../hooks/useRickAndMortyDataDetailsFetcher";
 import { useState, useEffect } from "react";
 import Error from "./Error";
 import Loader from "./Loader";
 
 function PersonajeDetalles() {
-  const { id } = useParams();
-
-  const [character, setCharacter] = useState();
+  const { data: character, error } = useRickAndMortyDataDetailsFetcher(
+    "https://rickandmortyapi.com/api/character"
+  );
   const [ubicacion, setUbicacion] = useState();
-  const [error, setError] = useState();
-
-  async function getCharacter() {
-    try {
-      const res = await fetch(
-        `https://rickandmortyapi.com/api/character/${id}`
-      );
-      const json = await res.json();
-      if (json.error) {
-        setError(json.error);
-      }
-      setCharacter(json);
-    } catch (e) {
-      setError(e.message);
-      console.log(e);
-    }
-  }
 
   async function getLocation() {
     try {
@@ -35,10 +19,6 @@ function PersonajeDetalles() {
       console.log(e);
     }
   }
-
-  useEffect(() => {
-    getCharacter();
-  }, []);
 
   useEffect(() => {
     getLocation();
