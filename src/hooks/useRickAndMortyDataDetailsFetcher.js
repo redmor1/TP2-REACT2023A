@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-export function useRickAndMortyDataDetailsFetcher() {
+// Opciones para la API_URL:
+// https://rickandmortyapi.com/api/character
+// https://rickandmortyapi.com/api/location
+// https://rickandmortyapi.com/api/episode
+
+export function useRickAndMortyDataDetailsFetcher(API_URL) {
   const { id } = useParams();
 
   const [data, setData] = useState();
@@ -9,7 +14,7 @@ export function useRickAndMortyDataDetailsFetcher() {
 
   async function getData() {
     try {
-      const res = await fetch(`https://rickandmortyapi.com/api/episode/${id}`);
+      const res = await fetch(`${API_URL}/${id}`);
       const json = await res.json();
       if (json.error) {
         setError(json.error);
