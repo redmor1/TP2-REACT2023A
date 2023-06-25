@@ -5,7 +5,9 @@ import Error from "./Error";
 import Loader from "./Loader";
 
 function EpisodioDetalles() {
-  const { data: episodio, error } = useRickAndMortyDataDetailsFetcher();
+  const { data: episodio, error } = useRickAndMortyDataDetailsFetcher(
+    "https://rickandmortyapi.com/api/episode"
+  );
   const [characters, setCharacters] = useState();
 
   async function fetchAndRenderCharacters() {
