@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 
+// Opciones para la API_URL:
+// https://rickandmortyapi.com/api/character
+// https://rickandmortyapi.com/api/location
+// https://rickandmortyapi.com/api/episode
+
 export function useRickAndMortyDataFetcher(API_URL) {
   const [data, setData] = useState();
   const [error, setError] = useState();
